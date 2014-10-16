@@ -25,6 +25,7 @@ def hotp(key, count, digits=8):
     key - the byte-string (length 20) representing the secret key
     count - the number of previous times a HOTP has been generated
     digits - optional, tells how many HOTP digits to generate
+  Return - the string representation of the HOTP value, left padded with zeroes
   '''
   byte_count = count.to_bytes(8, byteorder='big')
   hashed = hmac.new(key, byte_count, hashlib.sha1)
